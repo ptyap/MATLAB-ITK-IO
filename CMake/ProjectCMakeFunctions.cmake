@@ -11,8 +11,8 @@ FUNCTION(add_matlab_executable appName mainFile)
     TARGET_LINK_LIBRARIES(${appName} stdc++)
   ENDIF()
 
-  SET_TARGET_PROPERTIES(${appName} PROPERTIES
-                        COMPILE_DEFINITIONS MATLAB_MEX_FILE)
+  SET_TARGET_PROPERTIES(${appName} PROPERTIES COMPILE_DEFINITIONS MATLAB_MEX_FILE)
+  TARGET_COMPILE_DEFINITIONS(${appName} PRIVATE MATLAB_FUNCTION_NAME="${appName}")
 
   matlab_set_output_filename(${appName})
   matlab_set_compile_flags(${appName})
